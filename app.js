@@ -1,36 +1,36 @@
 
 // Modal
-const modelOpeners = document.querySelectorAll('.-open-model');
-const models = document.querySelectorAll('.model');
+const modalOpeners = document.querySelectorAll('.-open-modal');
+const modals = document.querySelectorAll('.modal');
 
-if (modelOpeners.length) {
-    modelOpeners.forEach(opener => {
+if (modalOpeners.length) {
+    modalOpeners.forEach(opener => {
         opener.addEventListener("click", () => {
             
-            models.forEach(model => {
-                model.classList.remove('-active');
+            modals.forEach(modal => {
+                modal.classList.remove('-active');
 
-                if (opener.dataset.model === model.dataset.model) {
-                    model.classList.add('-active');
+                if (opener.dataset.modal === modal.dataset.modal) {
+                    modal.classList.add('-active');
                 }
             })
         });
     });
 }
 
-if (models.length) {
-    models.forEach(model => {
-        const cross = model.querySelector('.model__cross');
+if (modals.length) {
+    modals.forEach(modal => {
+        const cross = modal.querySelector('.modal__cross');
 
         cross.addEventListener('click', () => {
-            model.classList.remove('-active');
+            modal.classList.remove('-active');
         });
     });
 
     window.addEventListener('keyup', (e) => {
         if (e.key === "Escape") {
-            models.forEach(model => {
-                model.classList.remove('-active');
+            modals.forEach(modal => {
+                modal.classList.remove('-active');
             });
        }
    });
